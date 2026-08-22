@@ -1,22 +1,27 @@
 [
     {
-        "task": "Parse an AWS S3 bucket name from an S3 URI (e.g., s3://my-bucket/path/to/file.txt)",
-        "format": "regex"
+        "task": "Parse an AWS CloudFormation template and extract all resource logical IDs",
+        "format": "python",
+        "solution_criteria": "Function should take a JSON string as input and return a list of all logical IDs (keys under 'Resources' section)"
     },
     {
-        "task": "Create a JSON CloudFormation template for an EC2 security group that allows inbound HTTP and HTTPS traffic",
-        "format": "json"
+        "task": "Validate an AWS IAM policy JSON to ensure it has required top-level keys (Version, Statement)",
+        "format": "json",
+        "solution_criteria": "JSON schema should define a valid IAM policy structure with Version and Statement as required fields, Statement as array of objects"
     },
     {
-        "task": "Write a Python function that extracts the region from an AWS ARN string",
-        "format": "python"
+        "task": "Extract AWS account ID from an ARN string using regex",
+        "format": "regex",
+        "solution_criteria": "Pattern should match and capture the 12-digit account ID from standard AWS ARN format (arn:aws:service:region:account-id:resource)"
     },
     {
-        "task": "Create a JSON policy document that grants read-only access to all objects in an S3 bucket",
-        "format": "json"
+        "task": "Convert AWS CLI response timestamps from ISO 8601 format to Unix epoch timestamp",
+        "format": "python",
+        "solution_criteria": "Function should accept an ISO 8601 datetime string and return integer Unix timestamp; must handle timezone information correctly"
     },
     {
-        "task": "Write a Python function that validates if a string is a valid AWS EC2 instance ID (format: i-xxxxxxxxx)",
-        "format": "python"
+        "task": "Identify all S3 bucket names in a CloudFormation template that have public read access enabled",
+        "format": "python",
+        "solution_criteria": "Function should parse CloudFormation JSON and return bucket logical IDs where PublicAccessBlockConfiguration allows public access or PublicRead is set"
     }
 ]
