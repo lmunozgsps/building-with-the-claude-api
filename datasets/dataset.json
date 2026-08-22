@@ -1,11 +1,22 @@
 [
     {
-        "task": "Write a Python function that extracts the AWS region from an S3 bucket URL like 's3://my-bucket.s3.us-west-2.amazonaws.com/key'. The function should return 'us-west-2'."
+        "task": "Parse an AWS S3 bucket name from an S3 URI (e.g., s3://my-bucket/path/to/file.txt)",
+        "format": "regex"
     },
     {
-        "task": "Create a JSON object representing an AWS IAM policy that allows a user to read objects from a specific S3 bucket named 'my-data-bucket' but denies all other S3 actions."
+        "task": "Create a JSON CloudFormation template for an EC2 security group that allows inbound HTTP and HTTPS traffic",
+        "format": "json"
     },
     {
-        "task": "Write a regular expression that matches valid AWS EC2 instance IDs in the format 'i-' followed by exactly 17 hexadecimal characters (e.g., 'i-0abcd1234efgh5678')."
+        "task": "Write a Python function that extracts the region from an AWS ARN string",
+        "format": "python"
+    },
+    {
+        "task": "Create a JSON policy document that grants read-only access to all objects in an S3 bucket",
+        "format": "json"
+    },
+    {
+        "task": "Write a Python function that validates if a string is a valid AWS EC2 instance ID (format: i-xxxxxxxxx)",
+        "format": "python"
     }
 ]
