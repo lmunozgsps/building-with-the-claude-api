@@ -1,0 +1,82 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon training - maximize carbohydrate intake for sustained energy and endurance performance",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan provides 55-65% of daily calories from carbohydrates to support endurance training",
+      "Includes 4-5 eating occasions distributed throughout the day for sustained energy",
+      "Total daily calories appropriate for a 68 kg endurance athlete in training (approximately 2,400-2,800 calories)",
+      "Specifies realistic food quantities and meal timing relative to training"
+    ],
+    "task_description": "Write a compact, concise 1 day meal for a single athlete",
+    "scenario": "Testing with an endurance athlete (marathon runner) requiring high carbohydrate intake and sustained energy throughout the day"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "90 kg",
+      "goal": "Muscle recovery and strength gains from weightlifting training",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan includes 4-5 eating occasions with protein distributed evenly (minimum 30g per meal)",
+      "Total daily protein intake meets or exceeds 1.8g per kg of body weight",
+      "Includes carbohydrates around training windows to support performance and recovery",
+      "All meals are practical, compact, and completable within a single day"
+    ],
+    "task_description": "Write a compact, concise 1 day meal for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) focusing on protein distribution and muscle recovery nutrition across meals"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "75 kg",
+      "goal": "Fuel a 120-minute road cycling training session with optimal energy distribution and hydration",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan includes pre-ride, during-ride, and post-ride nutrition timed appropriately around the 120-minute training session",
+      "Hydration strategy specified with fluid intake volumes and timing",
+      "All meals and snacks are vegetarian and nut-free",
+      "Caloric and macronutrient content supports sustained cycling performance for the duration specified"
+    ],
+    "task_description": "Write a compact, concise 1 day meal for a single athlete",
+    "scenario": "Testing with a sport-specific athlete (cyclist) emphasizing fueling strategy around training timing and hydration needs"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "goal": "Build muscle and improve endurance for competitive cycling",
+      "restrictions": "Vegetarian with peanut allergy"
+    },
+    "solution_criteria": [
+      "Meal plan includes 4-5 meals/snacks distributed throughout the day",
+      "All meals are vegetarian with no peanut-containing ingredients",
+      "Adequate protein intake from alternative sources (legumes, dairy, nuts excluding peanuts, seeds)",
+      "Macronutrient distribution supports muscle building and endurance training goals"
+    ],
+    "task_description": "Write a compact, concise 1 day meal for a single athlete",
+    "scenario": "Testing with dietary restriction constraints (vegetarian athlete or athlete with food allergies) requiring alternative protein and nutrient sources"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "75 kg",
+      "goal": "Competition day nutrition - maximize energy availability while maintaining digestibility 2 hours before event start",
+      "restrictions": "Lactose intolerant, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan spans full day with 4-5 eating occasions",
+      "Pre-competition meal (2 hours before) is easily digestible and carbohydrate-focused",
+      "Total daily calories and macronutrient distribution support competition performance",
+      "All dietary restrictions are respected throughout the day"
+    ],
+    "task_description": "Write a compact, concise 1 day meal for a single athlete",
+    "scenario": "Testing with an athlete preparing for competition day, balancing digestibility, energy availability, and pre-event meal timing considerations"
+  }
+]
