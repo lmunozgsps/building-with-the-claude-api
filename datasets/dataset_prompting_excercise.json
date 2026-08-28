@@ -1,0 +1,100 @@
+[
+    {
+        "prompt_inputs": {
+            "content": "This study examines the intersectionality of identity formation within postcolonial discourse, investigating how subaltern communities negotiate agency through narrative construction and epistemic resistance. Drawing on Foucauldian frameworks of power/knowledge relations, we analyze how marginalized subjects employ counter-hegemonic storytelling as a mode of self-representation, challenging dominant historiographical narratives. The analysis reveals that subjectivity emerges not as a fixed essence but as a contingent, relational process shaped by competing discursive formations. Furthermore, we explore the tension between individual autonomy and structural constraint, demonstrating how collective memory practices function as sites of cultural reclamation and political mobilization within transnational contexts."
+        },
+        "solution_criteria": [
+            "Extracts key abstract concepts and theoretical frameworks discussed in the passage",
+            "Identifies all major thematic areas without including minor supporting details",
+            "Returns results as a valid JSON array of strings"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a dense abstract from a humanities or social science article with abstract conceptual topics"
+    },
+    {
+        "prompt_inputs": {
+            "content": "Recent advances in microbiome research have revealed complex interactions between human gut bacteria and metabolic regulation. Studies employing 16S rRNA gene sequencing and metagenomic analysis demonstrate that dysbiosis\u2014characterized by reduced microbial diversity and altered Firmicutes-to-Bacteroidetes ratios\u2014correlates with obesity, insulin resistance, and systemic inflammation. These findings suggest potential therapeutic interventions through dietary fiber supplementation and targeted probiotic administration, though mechanistic pathways involving short-chain fatty acid production and intestinal barrier integrity remain incompletely understood. Furthermore, the emerging field of psychobiotics indicates bidirectional communication via the gut-brain axis, implicating microbial metabolites in neurotransmitter synthesis and behavioral outcomes."
+        },
+        "solution_criteria": [
+            "Extracts both explicit topics (microbiome, dysbiosis, 16S rRNA sequencing) and implicit topics requiring inference (metabolic health, neurological effects, therapeutic applications)",
+            "Returns output as a valid JSON array of strings",
+            "Identifies at least 6 distinct topics from the passage"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a passage containing implicit topics that require inference rather than explicit mentions"
+    },
+    {
+        "prompt_inputs": {
+            "content": "Recent advances in quantum chromodynamics have elucidated the role of gluon saturation in high-energy nuclear collisions, particularly through the color glass condensate framework. Simultaneously, single-molecule fluorescence spectroscopy combined with atomic force microscopy has enabled unprecedented visualization of protein folding kinetics, revealing intermediate conformational states stabilized by hydrophobic interactions and disulfide bond formation. These complementary techniques\u2014leveraging principles from quantum field theory, statistical mechanics, and biophysical chemistry\u2014have demonstrated that colloidal nanoparticles functionalized with biomolecules exhibit emergent photocatalytic properties when exposed to ultraviolet radiation, with applications ranging from targeted drug delivery to environmental remediation through photodegradation of persistent organic pollutants."
+        },
+        "solution_criteria": [
+            "Extracts topics spanning all three disciplines (physics/quantum mechanics, biology/biochemistry, chemistry/materials science)",
+            "Returns output as a valid JSON array of strings",
+            "Captures both specific technical concepts and broader research areas mentioned"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with highly technical interdisciplinary content mixing terminology from multiple fields (biology, chemistry, physics)"
+    },
+    {
+        "prompt_inputs": {
+            "content": "This study examines the intersection of machine learning algorithms and natural language processing in biomedical text mining applications. We implemented deep learning neural networks, specifically recurrent neural networks with attention mechanisms, to process clinical narratives and extract medical entities. Our approach combines supervised learning techniques with unsupervised clustering methods to identify disease patterns within patient records. The neural network architecture incorporates transformer-based models and BERT embeddings, which simultaneously address semantic similarity, entity recognition, and document classification tasks. These computational linguistics methods were validated against traditional statistical NLP approaches, demonstrating superior performance in both accuracy metrics and processing efficiency for healthcare information extraction systems."
+        },
+        "solution_criteria": [
+            "Extracts all distinct topics without duplication (e.g., machine learning, neural networks, NLP, biomedical text mining, entity recognition, clustering)",
+            "Correctly identifies nested topics by establishing proper boundaries (e.g., distinguishes 'deep learning' from 'recurrent neural networks' rather than merging them)",
+            "Returns output as a valid JSON array of strings with no additional formatting or metadata"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a passage containing overlapping and nested topics to ensure proper topic boundaries are identified"
+    },
+    {
+        "prompt_inputs": {
+            "content": "Recent advances in CRISPR-Cas9 gene editing have demonstrated significant therapeutic potential for treating monogenic disorders through precise DNA modification at target loci. The mechanism relies on sgRNA-guided nuclease activity to achieve high specificity, though off-target effects remain a critical concern in clinical applications. Integration with machine learning algorithms has improved prediction accuracy for potential off-target sites by 78%, while simultaneous developments in non-homologous end joining (NHEJ) inhibition and homology-directed repair (HDR) enhancement have increased successful gene correction rates. Furthermore, delivery challenges using adeno-associated viral (AAV) vectors and lipid nanoparticles (LNPs) continue to limit in vivo applications, particularly for tissue-specific targeting. Recent RNA-based therapeutics utilizing small interfering RNA (siRNA) and antisense oligonucleotides (ASOs) offer complementary approaches to traditional CRISPR methodologies for genetic disease intervention."
+        },
+        "solution_criteria": [
+            "Extracts domain-specific jargon and acronyms as distinct topics (e.g., CRISPR-Cas9, sgRNA, NHEJ, HDR, AAV, LNP, siRNA, ASO)",
+            "Includes broader scientific concepts and methodologies mentioned (e.g., gene editing, off-target effects, machine learning, delivery challenges)",
+            "Returns output as a valid JSON array of strings",
+            "Avoids including generic words while capturing all substantive technical topics"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a passage containing domain-specific jargon and acronyms that should be recognized as distinct topics"
+    },
+    {
+        "prompt_inputs": {
+            "content": "This study examines the neurobiological mechanisms underlying memory consolidation during rapid eye movement sleep. Using functional magnetic resonance imaging in a cohort of 32 participants, we observed significant activation in the hippocampus and prefrontal cortex during REM sleep episodes following declarative learning tasks. Our findings suggest that sleep-dependent memory processing involves coordinated synaptic plasticity mechanisms, with particular emphasis on long-term potentiation pathways. These results contribute to understanding how sleep architecture influences cognitive performance and may have implications for interventions targeting memory disorders."
+        },
+        "solution_criteria": [
+            "Extracts all major topics present in the passage",
+            "Returns output as a JSON array of strings",
+            "Avoids including redundant or overly granular subtopics"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a brief single-paragraph passage with minimal content to ensure the prompt handles sparse input"
+    },
+    {
+        "prompt_inputs": {
+            "content": "This study employs a mixed-methods approach combining quantitative regression analysis with qualitative thematic coding to examine organizational change. The quantitative component utilizes hierarchical linear modeling to account for nested data structures across multiple institutional levels, while the qualitative phase applies grounded theory methodology to analyze 45 semi-structured interviews. We further integrate systems thinking frameworks to map causal relationships between variables, complemented by phenomenological analysis to capture participant experiences. The research design synthesizes positivist and interpretivist paradigms, employing structural equation modeling alongside narrative inquiry to triangulate findings across epistemological perspectives."
+        },
+        "solution_criteria": [
+            "Extracts all distinct methodologies and analytical frameworks mentioned in the passage",
+            "Returns results as a JSON array of strings",
+            "Avoids including non-methodological terms or generic concepts like 'research' or 'analysis'"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a passage discussing multiple methodologies and frameworks to verify proper identification of methodological topics"
+    },
+    {
+        "prompt_inputs": {
+            "content": "The evolution of urban transportation systems reflects distinct technological and social paradigms across multiple centuries. During the Industrial Revolution of the 19th century, the introduction of steam-powered railways fundamentally transformed settlement patterns and economic organization. The early 20th century witnessed the rise of automobile culture, which reshaped city planning through the construction of highway networks and suburban sprawl. The post-World War II era introduced mass transit systems and urban renewal initiatives, while the late 20th century brought concerns about congestion and environmental sustainability. Contemporary 21st-century approaches emphasize electric vehicles, autonomous driving technology, and integrated mobility solutions that prioritize carbon reduction and smart city infrastructure."
+        },
+        "solution_criteria": [
+            "Extracts distinct historical periods and eras as separate topics (Industrial Revolution, early 20th century, post-WWII, late 20th century, 21st century)",
+            "Identifies major technological innovations and systems mentioned (railways, automobiles, mass transit, electric vehicles, autonomous driving)",
+            "Returns output as a JSON array of strings",
+            "Captures all major topics without duplicates or excessive fragmentation"
+        ],
+        "task_description": "\n    Extract topics out of a passage of text from a scholarly article into a JSON array of strings\n    ",
+        "scenario": "Testing with a passage containing historical or longitudinal references where time periods and eras represent distinct topics"
+    }
+]

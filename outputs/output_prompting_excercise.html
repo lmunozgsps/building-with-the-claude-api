@@ -1,0 +1,404 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">8</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.5 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">87.5%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a passage containing overlapping and nested topics to ensure proper topic boundaries are identified</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the intersection of machine learning algorithms and natural language processing in biomedical text mining applications. We implemented deep learning neural networks, specifically recurrent neural networks with attention mechanisms, to process clinical narratives and extract medical entities. Our approach combines supervised learning techniques with unsupervised clustering methods to identify disease patterns within patient records. The neural network architecture incorporates transformer-based models and BERT embeddings, which simultaneously address semantic similarity, entity recognition, and document classification tasks. These computational linguistics methods were validated against traditional statistical NLP approaches, demonstrating superior performance in both accuracy metrics and processing efficiency for healthcare information extraction systems.</td>
+                <td class="criteria">• Extracts all distinct topics without duplication (e.g., machine learning, neural networks, NLP, biomedical text mining, entity recognition, clustering)<br>• Correctly identifies nested topics by establishing proper boundaries (e.g., distinguishes 'deep learning' from 'recurrent neural networks' rather than merging them)<br>• Returns output as a valid JSON array of strings with no additional formatting or metadata</td>
+                <td class="output"><pre>```json
+[
+    "machine learning algorithms",
+    "natural language processing",
+    "biomedical text mining",
+    "deep learning neural networks",
+    "recurrent neural networks",
+    "attention mechanisms",
+    "clinical narratives",
+    "medical entity extraction",
+    "supervised learning techniques",
+    "unsupervised clustering methods",
+    "disease patterns",
+    "patient records",
+    "transformer-based models",
+    "BERT embeddings",
+    "semantic similarity",
+    "entity recognition",
+    "document classification",
+    "computational linguistics",
+    "statistical NLP approaches",
+    "accuracy metrics",
+    "processing efficiency",
+    "healthcare information extraction systems"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the article with no extra commentary. It meets the secondary criteria by extracting all distinct topics without duplication and properly establishing boundaries between nested concepts. The extraction is thorough and accurate, capturing both high-level concepts (machine learning, NLP) and specific technical approaches (BERT embeddings, transformer-based models). The minor inconsistency in granularity is negligible and does not detract from the overall quality of the extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing domain-specific jargon and acronyms that should be recognized as distinct topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR-Cas9 gene editing have demonstrated significant therapeutic potential for treating monogenic disorders through precise DNA modification at target loci. The mechanism relies on sgRNA-guided nuclease activity to achieve high specificity, though off-target effects remain a critical concern in clinical applications. Integration with machine learning algorithms has improved prediction accuracy for potential off-target sites by 78%, while simultaneous developments in non-homologous end joining (NHEJ) inhibition and homology-directed repair (HDR) enhancement have increased successful gene correction rates. Furthermore, delivery challenges using adeno-associated viral (AAV) vectors and lipid nanoparticles (LNPs) continue to limit in vivo applications, particularly for tissue-specific targeting. Recent RNA-based therapeutics utilizing small interfering RNA (siRNA) and antisense oligonucleotides (ASOs) offer complementary approaches to traditional CRISPR methodologies for genetic disease intervention.</td>
+                <td class="criteria">• Extracts domain-specific jargon and acronyms as distinct topics (e.g., CRISPR-Cas9, sgRNA, NHEJ, HDR, AAV, LNP, siRNA, ASO)<br>• Includes broader scientific concepts and methodologies mentioned (e.g., gene editing, off-target effects, machine learning, delivery challenges)<br>• Returns output as a valid JSON array of strings<br>• Avoids including generic words while capturing all substantive technical topics</td>
+                <td class="output"><pre>```json
+[
+    "CRISPR-Cas9 gene editing",
+    "therapeutic potential",
+    "monogenic disorders",
+    "DNA modification",
+    "target loci",
+    "sgRNA-guided nuclease activity",
+    "specificity",
+    "off-target effects",
+    "clinical applications",
+    "machine learning algorithms",
+    "prediction accuracy",
+    "non-homologous end joining (NHEJ) inhibition",
+    "homology-directed repair (HDR) enhancement",
+    "gene correction rates",
+    "delivery challenges",
+    "adeno-associated viral (AAV) vectors",
+    "lipid nanoparticles (LNPs)",
+    "in vivo applications",
+    "tissue-specific targeting",
+    "RNA-based therapeutics",
+    "small interfering RNA (siRNA)",
+    "antisense oligonucleotides (ASOs)",
+    "genetic disease intervention"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the article with no extra commentary. It successfully extracts domain-specific jargon and acronyms as distinct topics and includes broader scientific concepts and methodologies. The extraction is thorough and avoids most generic words while capturing substantive technical topics. Minor weaknesses exist in the inclusion of slightly generic phrases and inconsistent formatting choices, but these do not violate mandatory requirements and represent only minor deviations from optimal secondary criteria adherence.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing implicit topics that require inference rather than explicit mentions</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in microbiome research have revealed complex interactions between human gut bacteria and metabolic regulation. Studies employing 16S rRNA gene sequencing and metagenomic analysis demonstrate that dysbiosis—characterized by reduced microbial diversity and altered Firmicutes-to-Bacteroidetes ratios—correlates with obesity, insulin resistance, and systemic inflammation. These findings suggest potential therapeutic interventions through dietary fiber supplementation and targeted probiotic administration, though mechanistic pathways involving short-chain fatty acid production and intestinal barrier integrity remain incompletely understood. Furthermore, the emerging field of psychobiotics indicates bidirectional communication via the gut-brain axis, implicating microbial metabolites in neurotransmitter synthesis and behavioral outcomes.</td>
+                <td class="criteria">• Extracts both explicit topics (microbiome, dysbiosis, 16S rRNA sequencing) and implicit topics requiring inference (metabolic health, neurological effects, therapeutic applications)<br>• Returns output as a valid JSON array of strings<br>• Identifies at least 6 distinct topics from the passage</td>
+                <td class="output"><pre>```json
+[
+    "microbiome research",
+    "gut bacteria",
+    "metabolic regulation",
+    "16S rRNA gene sequencing",
+    "metagenomic analysis",
+    "dysbiosis",
+    "microbial diversity",
+    "Firmicutes-to-Bacteroidetes ratios",
+    "obesity",
+    "insulin resistance",
+    "systemic inflammation",
+    "dietary fiber supplementation",
+    "probiotic administration",
+    "short-chain fatty acid production",
+    "intestinal barrier integrity",
+    "psychobiotics",
+    "gut-brain axis",
+    "bidirectional communication",
+    "microbial metabolites",
+    "neurotransmitter synthesis",
+    "behavioral outcomes"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it provides a valid JSON array of strings containing topics from the passage with no extra commentary, and the response contains only the JSON array. It exceeds the secondary criteria by identifying 21 topics (well above the minimum 6), capturing both explicit concepts (microbiome, dysbiosis, sequencing methods) and implicit topics requiring inference (therapeutic interventions, psychobiotics, neurological implications). While there is minor redundancy in topic selection, this does not violate any stated criteria and reflects thorough extraction. The solution demonstrates strong comprehension of the passage's content and scope.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with highly technical interdisciplinary content mixing terminology from multiple fields (biology, chemistry, physics)</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in quantum chromodynamics have elucidated the role of gluon saturation in high-energy nuclear collisions, particularly through the color glass condensate framework. Simultaneously, single-molecule fluorescence spectroscopy combined with atomic force microscopy has enabled unprecedented visualization of protein folding kinetics, revealing intermediate conformational states stabilized by hydrophobic interactions and disulfide bond formation. These complementary techniques—leveraging principles from quantum field theory, statistical mechanics, and biophysical chemistry—have demonstrated that colloidal nanoparticles functionalized with biomolecules exhibit emergent photocatalytic properties when exposed to ultraviolet radiation, with applications ranging from targeted drug delivery to environmental remediation through photodegradation of persistent organic pollutants.</td>
+                <td class="criteria">• Extracts topics spanning all three disciplines (physics/quantum mechanics, biology/biochemistry, chemistry/materials science)<br>• Returns output as a valid JSON array of strings<br>• Captures both specific technical concepts and broader research areas mentioned</td>
+                <td class="output"><pre>```json
+[
+    "quantum chromodynamics",
+    "gluon saturation",
+    "high-energy nuclear collisions",
+    "color glass condensate framework",
+    "single-molecule fluorescence spectroscopy",
+    "atomic force microscopy",
+    "protein folding kinetics",
+    "intermediate conformational states",
+    "hydrophobic interactions",
+    "disulfide bond formation",
+    "quantum field theory",
+    "statistical mechanics",
+    "biophysical chemistry",
+    "colloidal nanoparticles",
+    "biomolecules",
+    "emergent photocatalytic properties",
+    "ultraviolet radiation",
+    "targeted drug delivery",
+    "environmental remediation",
+    "photodegradation",
+    "persistent organic pollutants"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only strings with topics, no extra commentary, and nothing else in the response. It meets all secondary criteria by extracting topics spanning physics, biology, and chemistry/materials science, capturing both specific technical concepts (e.g., 'disulfide bond formation', 'color glass condensate framework') and broader research areas (e.g., 'quantum field theory', 'statistical mechanics'). The extraction is thorough and accurate to the source material. While some extracted items are applications rather than pure topics, they are legitimately mentioned in the passage and represent valid research areas. The solution demonstrates excellent comprehension of the interdisciplinary content.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a dense abstract from a humanities or social science article with abstract conceptual topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the intersectionality of identity formation within postcolonial discourse, investigating how subaltern communities negotiate agency through narrative construction and epistemic resistance. Drawing on Foucauldian frameworks of power/knowledge relations, we analyze how marginalized subjects employ counter-hegemonic storytelling as a mode of self-representation, challenging dominant historiographical narratives. The analysis reveals that subjectivity emerges not as a fixed essence but as a contingent, relational process shaped by competing discursive formations. Furthermore, we explore the tension between individual autonomy and structural constraint, demonstrating how collective memory practices function as sites of cultural reclamation and political mobilization within transnational contexts.</td>
+                <td class="criteria">• Extracts key abstract concepts and theoretical frameworks discussed in the passage<br>• Identifies all major thematic areas without including minor supporting details<br>• Returns results as a valid JSON array of strings</td>
+                <td class="output"><pre>```json
+[
+    "intersectionality",
+    "identity formation",
+    "postcolonial discourse",
+    "subaltern communities",
+    "agency",
+    "narrative construction",
+    "epistemic resistance",
+    "Foucauldian frameworks",
+    "power/knowledge relations",
+    "marginalized subjects",
+    "counter-hegemonic storytelling",
+    "self-representation",
+    "historiographical narratives",
+    "subjectivity",
+    "discursive formations",
+    "individual autonomy",
+    "structural constraint",
+    "collective memory practices",
+    "cultural reclamation",
+    "political mobilization",
+    "transnational contexts"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. Regarding secondary criteria, it successfully extracts key abstract concepts and theoretical frameworks (intersectionality, postcolonial discourse, Foucauldian frameworks, epistemic resistance, etc.). The extraction is comprehensive and captures the major thematic areas. While a few items could be debated as 'minor supporting details' rather than 'major thematic areas,' the overall selection is defensible and demonstrates strong understanding of the passage's core intellectual content. The solution meets the stated criteria effectively.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a brief single-paragraph passage with minimal content to ensure the prompt handles sparse input</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the neurobiological mechanisms underlying memory consolidation during rapid eye movement sleep. Using functional magnetic resonance imaging in a cohort of 32 participants, we observed significant activation in the hippocampus and prefrontal cortex during REM sleep episodes following declarative learning tasks. Our findings suggest that sleep-dependent memory processing involves coordinated synaptic plasticity mechanisms, with particular emphasis on long-term potentiation pathways. These results contribute to understanding how sleep architecture influences cognitive performance and may have implications for interventions targeting memory disorders.</td>
+                <td class="criteria">• Extracts all major topics present in the passage<br>• Returns output as a JSON array of strings<br>• Avoids including redundant or overly granular subtopics</td>
+                <td class="output"><pre>```json
+[
+    "neurobiological mechanisms",
+    "memory consolidation",
+    "rapid eye movement sleep",
+    "REM sleep",
+    "functional magnetic resonance imaging",
+    "fMRI",
+    "hippocampus",
+    "prefrontal cortex",
+    "declarative learning",
+    "sleep-dependent memory processing",
+    "synaptic plasticity",
+    "long-term potentiation",
+    "sleep architecture",
+    "cognitive performance",
+    "memory disorders"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. However, it violates the secondary criterion regarding redundancy by including both the full form and acronym for REM sleep, and similarly for fMRI/functional magnetic resonance imaging. While the inclusion of acronyms could be debated as useful variants, the explicit criterion states to 'avoid including redundant or overly granular subtopics.' The presence of clear synonyms (REM sleep vs. rapid eye movement sleep) is a definitive redundancy issue. The solution is otherwise strong in topic coverage and appropriate granularity.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage discussing multiple methodologies and frameworks to verify proper identification of methodological topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study employs a mixed-methods approach combining quantitative regression analysis with qualitative thematic coding to examine organizational change. The quantitative component utilizes hierarchical linear modeling to account for nested data structures across multiple institutional levels, while the qualitative phase applies grounded theory methodology to analyze 45 semi-structured interviews. We further integrate systems thinking frameworks to map causal relationships between variables, complemented by phenomenological analysis to capture participant experiences. The research design synthesizes positivist and interpretivist paradigms, employing structural equation modeling alongside narrative inquiry to triangulate findings across epistemological perspectives.</td>
+                <td class="criteria">• Extracts all distinct methodologies and analytical frameworks mentioned in the passage<br>• Returns results as a JSON array of strings<br>• Avoids including non-methodological terms or generic concepts like 'research' or 'analysis'</td>
+                <td class="output"><pre>```json
+[
+    "mixed-methods approach",
+    "quantitative regression analysis",
+    "qualitative thematic coding",
+    "organizational change",
+    "hierarchical linear modeling",
+    "nested data structures",
+    "institutional levels",
+    "grounded theory methodology",
+    "semi-structured interviews",
+    "systems thinking frameworks",
+    "causal relationships",
+    "phenomenological analysis",
+    "participant experiences",
+    "positivist paradigm",
+    "interpretivist paradigm",
+    "structural equation modeling",
+    "narrative inquiry",
+    "triangulation",
+    "epistemological perspectives"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the article with no extra commentary. Regarding secondary criteria, it successfully extracts distinct methodologies and analytical frameworks (mixed-methods approach, hierarchical linear modeling, grounded theory, phenomenological analysis, structural equation modeling, narrative inquiry, etc.) and appropriately avoids generic terms like 'research' or 'analysis'. However, there are minor issues with three entries that are somewhat tangential to the core requirement of extracting 'methodologies and analytical frameworks': 'institutional levels' is a structural descriptor, 'causal relationships' is a conceptual outcome, and 'participant experiences' is more of a research focus. These represent borderline cases rather than clear violations, as they relate to the research design but aren't strictly methodologies or frameworks themselves.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing historical or longitudinal references where time periods and eras represent distinct topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> The evolution of urban transportation systems reflects distinct technological and social paradigms across multiple centuries. During the Industrial Revolution of the 19th century, the introduction of steam-powered railways fundamentally transformed settlement patterns and economic organization. The early 20th century witnessed the rise of automobile culture, which reshaped city planning through the construction of highway networks and suburban sprawl. The post-World War II era introduced mass transit systems and urban renewal initiatives, while the late 20th century brought concerns about congestion and environmental sustainability. Contemporary 21st-century approaches emphasize electric vehicles, autonomous driving technology, and integrated mobility solutions that prioritize carbon reduction and smart city infrastructure.</td>
+                <td class="criteria">• Extracts distinct historical periods and eras as separate topics (Industrial Revolution, early 20th century, post-WWII, late 20th century, 21st century)<br>• Identifies major technological innovations and systems mentioned (railways, automobiles, mass transit, electric vehicles, autonomous driving)<br>• Returns output as a JSON array of strings<br>• Captures all major topics without duplicates or excessive fragmentation</td>
+                <td class="output"><pre>```json
+[
+    "urban transportation systems",
+    "technological paradigms",
+    "social paradigms",
+    "Industrial Revolution",
+    "steam-powered railways",
+    "settlement patterns",
+    "economic organization",
+    "automobile culture",
+    "city planning",
+    "highway networks",
+    "suburban sprawl",
+    "mass transit systems",
+    "urban renewal initiatives",
+    "congestion",
+    "environmental sustainability",
+    "electric vehicles",
+    "autonomous driving technology",
+    "integrated mobility solutions",
+    "carbon reduction",
+    "smart city infrastructure"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">6</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the article with no extra commentary. However, it has a notable deficiency against the secondary criteria. The task explicitly requires extracting 'distinct historical periods and eras as separate topics,' but the solution only includes 'Industrial Revolution' while omitting the other temporal references (early 20th century, post-WWII, late 20th century, 21st century) as distinct topics. The solution does identify major technological innovations well and avoids duplicates. The fragmentation issue is minor compared to the missing historical periods, which represents a clear gap against stated criteria.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
