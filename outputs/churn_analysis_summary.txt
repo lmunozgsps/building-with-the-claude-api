@@ -1,0 +1,181 @@
+================================================================================
+                    STREAMING SERVICE CHURN ANALYSIS
+                         EXECUTIVE SUMMARY REPORT
+================================================================================
+
+DATASET OVERVIEW:
+-----------------
+• Total Customers: 500
+• Churned Customers: 193 (38.6%)
+• Retained Customers: 307 (61.4%)
+
+================================================================================
+MAJOR CHURN DRIVERS (Ranked by Statistical Correlation)
+================================================================================
+
+1. CUSTOMER SERVICE INTERACTIONS (+0.2794 correlation) ⚠️
+   --------------------------------------------------------
+   • Churned customers: 3.18 interactions vs Retained: 2.49
+   • 27.7% MORE interactions for churned customers
+   • Significance: p < 0.001 (Highly Significant)
+   • Interpretation: High CS contact signals dissatisfaction/problems
+   
+   INSIGHT: This is the strongest POSITIVE predictor of churn. Users 
+   contacting customer service frequently are experiencing issues that 
+   drive them away.
+
+2. TOTAL VIEWING HOURS (-0.2464 correlation) 📺
+   --------------------------------------------------------
+   • Churned customers: 66.6 hours vs Retained: 83.2 hours
+   • 20.0% LESS viewing time for churned customers
+   • Significance: p < 0.001 (Highly Significant)
+   • Interpretation: Lower engagement = higher churn risk
+   
+   INSIGHT: Engagement is critical. Less active users are much more 
+   likely to cancel their subscription.
+
+3. BINGE WATCHING SESSIONS (-0.2368 correlation) 🍿
+   --------------------------------------------------------
+   • Churned customers: 6.2 sessions vs Retained: 7.7 sessions
+   • 19.7% FEWER binge sessions for churned customers
+   • Significance: p < 0.001 (Highly Significant)
+   • Interpretation: Binge-watching creates habit and loyalty
+   
+   INSIGHT: Users who binge-watch are more invested in the platform 
+   and less likely to leave.
+
+4. CONTENT VARIETY (-0.2239 correlation) 🎬
+   --------------------------------------------------------
+   • Churned customers: 19.5 unique titles vs Retained: 23.7
+   • 18.1% FEWER unique titles watched by churned customers
+   • Significance: p < 0.001 (Highly Significant)
+   • Interpretation: Content diversity drives perceived value
+   
+   INSIGHT: Users exploring more content see greater platform value 
+   and are less likely to churn.
+
+5. SESSION DURATION (-0.2178 correlation) ⏱️
+   --------------------------------------------------------
+   • Churned customers: 49.4 min vs Retained: 57.8 min
+   • 14.4% SHORTER sessions for churned customers
+   • Significance: p < 0.001 (Highly Significant)
+   • Interpretation: Deeper engagement per session matters
+   
+   INSIGHT: Longer viewing sessions indicate higher satisfaction 
+   and commitment to the platform.
+
+6. MONTHLY COST (-0.1263 correlation) 💰
+   --------------------------------------------------------
+   • Churned customers: $11.18 vs Retained: $12.11
+   • 7.7% LOWER cost for churned customers
+   • Significance: p < 0.01 (Significant)
+   • Interpretation: Counter-intuitive but explained by tier analysis
+   
+   INSIGHT: Basic tier users (cheapest) have highest churn, suggesting 
+   value perception issues rather than price sensitivity.
+
+================================================================================
+SUBSCRIPTION TIER ANALYSIS
+================================================================================
+
+Tier      | Customers | Churn Rate | Monthly Cost | Risk Level
+----------+-----------+------------+--------------+-------------
+Basic     |    207    |   43.5%    |    $7.99     | 🔴 HIGH
+Standard  |    210    |   39.5%    |   $12.99     | 🟡 MEDIUM
+Premium   |     83    |   24.1%    |   $17.99     | 🟢 LOW
+
+KEY FINDINGS:
+• Basic tier users are 1.8x MORE likely to churn than Premium users
+• Chi-square test: p = 0.0086 (Statistically significant)
+• Higher-paying customers show better retention
+• Suggests value perception drives retention more than price
+
+================================================================================
+GENRE PREFERENCES & CHURN RISK
+================================================================================
+
+Genre         | Churn Rate | Risk Level
+--------------+------------+-------------
+Horror        |   52.3%    | 🔴 VERY HIGH
+Thriller      |   48.3%    | 🔴 HIGH
+Action        |   44.6%    | 🟡 MEDIUM-HIGH
+Romance       |   41.8%    | 🟡 MEDIUM
+SciFi         |   40.5%    | 🟡 MEDIUM
+Drama         |   35.3%    | 🟢 MEDIUM-LOW
+Comedy        |   33.0%    | 🟢 LOW
+Documentary   |   25.9%    | 🟢 VERY LOW
+
+INSIGHT: Horror/Thriller fans show 2x higher churn than Documentary fans.
+This could indicate content library gaps in these genres or different 
+user behavior patterns.
+
+================================================================================
+TOP 5 ACTIONABLE RECOMMENDATIONS
+================================================================================
+
+1. 🎯 EARLY WARNING SYSTEM FOR CUSTOMER SERVICE
+   Priority: CRITICAL
+   ----------------------------------------------------------------------
+   • Monitor users with 3+ CS interactions in a month
+   • Implement proactive outreach to resolve issues
+   • Improve self-service options to reduce friction
+   • Expected Impact: HIGH (addresses +27.9% correlation)
+
+2. 📊 ENGAGEMENT-BASED RETENTION CAMPAIGNS
+   Priority: CRITICAL
+   ----------------------------------------------------------------------
+   • Target users watching < 67 hours/month (below churn threshold)
+   • Send personalized content recommendations
+   • Create viewing challenges and engagement rewards
+   • Expected Impact: HIGH (addresses -24.6% correlation)
+
+3. 💎 BASIC TIER VALUE ENHANCEMENT
+   Priority: HIGH
+   ----------------------------------------------------------------------
+   • Improve Basic tier features (43.5% churn rate)
+   • Offer time-limited Premium trials to Basic users
+   • Re-evaluate Basic tier pricing/features
+   • Target: Reduce Basic tier churn by 10-15 percentage points
+
+4. 🍿 BINGE-WATCHING PROMOTION
+   Priority: MEDIUM-HIGH
+   ----------------------------------------------------------------------
+   • Target users with < 6 binge sessions/month
+   • Promote series content over single movies
+   • Implement auto-play and "continue watching" features
+   • Create weekend/themed binge-watching events
+
+5. 🎬 CONTENT DISCOVERY IMPROVEMENTS
+   Priority: MEDIUM-HIGH
+   ----------------------------------------------------------------------
+   • Target users watching < 20 unique titles/month
+   • Enhance recommendation algorithms
+   • Create curated genre collections
+   • Improve search and browse experience
+   • Focus on Horror/Thriller genre expansion (highest churn)
+
+================================================================================
+STATISTICAL CONFIDENCE & METHODOLOGY
+================================================================================
+
+✓ All major drivers showed high statistical significance (p < 0.001)
+✓ Large sample size (n=500) provides reliable estimates
+✓ Effect sizes are practically significant (15-28% differences)
+✓ Multiple testing methods used (t-tests, chi-square, correlation)
+✓ No missing data issues
+
+CONCLUSION:
+-----------
+Churn is primarily driven by two factors:
+1. LOW CUSTOMER ENGAGEMENT (viewing hours, binge sessions, content variety)
+2. CUSTOMER DISSATISFACTION (indicated by CS interactions)
+
+The most effective retention strategy should focus on:
+• Identifying low-engagement users early
+• Resolving customer issues before they escalate
+• Improving Basic tier value proposition
+• Encouraging binge-watching behavior
+
+================================================================================
+                              END OF REPORT
+================================================================================
